@@ -1,0 +1,36 @@
+#include <stdio.h>
+#include <stdlib.h> // Required for the abs() function
+
+// Function to update the values of two integers
+void update(int *a, int *b) {
+    // Calculate the sum of the values pointed by a and b
+    int sum = *a + *b;
+    
+    // Calculate the absolute difference of the values pointed by a and b
+    int diff = abs(*a - *b); // abs() calculates the absolute value
+
+    // Update the value pointed by a with the sum
+    *a = sum;
+
+    // Update the value pointed by b with the absolute difference
+    *b = diff;
+}
+
+// Main function where the program starts execution
+int main() {
+    int a, b;
+
+    // Pointers pa and pb are created to point to the variables a and b
+    int *pa = &a, *pb = &b;
+
+    // Read two integers from the user and store them in a and b
+    scanf("%d %d", &a, &b);
+
+    // Call the update function with the pointers pa and pb to update the values
+    update(pa, pb);
+
+    // Print the updated values of a and b
+    printf("%d\n%d", a, b);
+
+    return 0;
+}
