@@ -1,0 +1,37 @@
+#include <stdio.h>
+
+int main() {
+    int n, k;
+    int max_and = 0, max_or = 0, max_xor = 0;
+
+    // Input values for 'n' and 'k'
+    printf("Enter values for 'n' and 'k': ");
+    scanf("%d %d", &n, &k);
+
+    for (int i = 1; i < n; i++) {
+        for (int j = i + 1; j <= n; j++) {
+            // Calculate bitwise AND, OR, and XOR between 'i' and 'j'
+            int bitwise_and = i & j;
+            int bitwise_or = i | j;
+            int bitwise_xor = i ^ j;
+
+            // Update maximum values if the result is less than 'k'
+            if (bitwise_and > max_and && bitwise_and < k) {
+                max_and = bitwise_and;
+            }
+            if (bitwise_or > max_or && bitwise_or < k) {
+                max_or = bitwise_or;
+            }
+            if (bitwise_xor > max_xor && bitwise_xor < k) {
+                max_xor = bitwise_xor;
+            }
+        }
+    }
+
+    // Print the maximum values of AND, OR, and XOR
+    printf("Maximum AND: %d\n", max_and);
+    printf("Maximum OR: %d\n", max_or);
+    printf("Maximum XOR: %d\n", max_xor);
+
+    return 0;
+}
